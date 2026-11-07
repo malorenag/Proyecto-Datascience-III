@@ -7,7 +7,7 @@ Cada etapa guarda sus resultados en  outputs/  y la siguiente los reutiliza.
     python proyecto_nlp.py m1        # Pre-entrega 1: pipeline PyTorch (train/val, Adam)
     python proyecto_nlp.py m2        # Pre-entrega 2: preprocesamiento + EDA + PDF
     python proyecto_nlp.py m3        # Pre-entrega 3: TF-IDF + clasificador (baseline)
-    
+      
 
 Opciones utiles:  --apellido Gomez --nombre Maria Lorena   (para el nombre de los PDF)
 
