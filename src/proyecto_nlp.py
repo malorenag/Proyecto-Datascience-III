@@ -15,7 +15,7 @@ Reglas de oro que respeta el script:
   * El TEST (ag_news_test.csv) nunca se usa para entrenar ni para elegir hiperparametros.
   * TfidfVectorizer: fit solo sobre train, transform sobre test (sin data leakage).
   * Baseline (M3) y Transformer (M4) se evaluan sobre el MISMO test, con las mismas clases.
-"""
+""" 
 import argparse
 import html
 import json
