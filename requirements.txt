@@ -1,0 +1,14 @@
+# Python 3.12 | M1 y M4 requieren PyTorch 2.x (M4 con GPU: Colab/Kaggle)
+numpy
+pandas
+scikit-learn>=1.3
+matplotlib
+joblib
+pillow
+reportlab
+spacy>=3.7        # luego: python -m spacy download en_core_web_sm
+torch>=2.2
+transformers>=4.40
+datasets
+peft>=0.10
+accelerate
