@@ -56,6 +56,7 @@ def cargar(dataset: str = DATASET):
     Busca los CSV en data/, en la carpeta del script o en dataset/<nombre>/ (como cargar_dataset.py)."""
     for carpeta in (DATA, BASE, BASE / dataset):
         a, b = carpeta / f"{dataset}_train.csv", carpeta / f"{dataset}_test.csv"
+        print(a, b)
         if a.exists() and b.exists():
             return pd.read_csv(a), pd.read_csv(b)
     raise FileNotFoundError("No encuentro ag_news_train.csv / ag_news_test.csv (ponelos en data/)")
