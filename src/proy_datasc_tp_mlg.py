@@ -804,7 +804,7 @@ def m5(args):
 # --------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("etapa", choices=["m1", "m2", "m3", "m4", "m4-pdf", "m5"])
+    ap.add_argument("etapa", nargs="?", choices=["m1", "m2", "m3", "m4", "m4-pdf", "m5"])
     ap.add_argument("--apellido", default="Apellido")
     ap.add_argument("--nombre", default="Nombre")
     ap.add_argument("--epochs", type=int, default=None)
@@ -813,6 +813,8 @@ def main():
     ap.add_argument("--r", type=int, default=8)
     ap.add_argument("--alpha", type=int, default=16)
     a = ap.parse_args()
+    if a.etapa is None:
+        a.etapa = input("Etapa a ejecutar (m1, m2, m3, m4, m4-pdf, m5): ").strip()
     if a.etapa == "m1":
         a.epochs, a.lr = a.epochs or 15, a.lr or 1e-3
         m1(a)
