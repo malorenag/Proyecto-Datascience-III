@@ -1,0 +1,452 @@
+{
+  "lemmatizer": "spaCy en_core_web_sm",
+  "n_train": 8000,
+  "n_test": 2000,
+  "ruido_antes": 2639,
+  "bylines_agencia": 1688,
+  "ruido_despues": 0,
+  "len": {
+    "mean": 37.217625,
+    "median": 37.0,
+    "p95": 52,
+    "max": 141,
+    "min": 5
+  },
+  "clases": {
+    "Business": {
+      "train": 2000,
+      "test": 500
+    },
+    "Sci_Tech": {
+      "train": 2000,
+      "test": 500
+    },
+    "Sports": {
+      "train": 2000,
+      "test": 500
+    },
+    "World": {
+      "train": 2000,
+      "test": 500
+    }
+  },
+  "bigramas": [
+    [
+      "new york",
+      419
+    ],
+    [
+      "oil price",
+      197
+    ],
+    [
+      "united states",
+      166
+    ],
+    [
+      "prime minister",
+      139
+    ],
+    [
+      "official say",
+      131
+    ],
+    [
+      "say thursday",
+      102
+    ],
+    [
+      "say monday",
+      101
+    ],
+    [
+      "red sox",
+      98
+    ],
+    [
+      "say tuesday",
+      98
+    ],
+    [
+      "san francisco",
+      96
+    ],
+    [
+      "los angeles",
+      96
+    ],
+    [
+      "president bush",
+      93
+    ],
+    [
+      "say wednesday",
+      90
+    ],
+    [
+      "say friday",
+      88
+    ],
+    [
+      "year old",
+      88
+    ],
+    [
+      "sport network",
+      74
+    ],
+    [
+      "mobile phone",
+      72
+    ],
+    [
+      "wall street",
+      71
+    ],
+    [
+      "microsoft corp",
+      70
+    ],
+    [
+      "world cup",
+      69
+    ]
+  ],
+  "trigramas": [
+    [
+      "boston red sox",
+      37
+    ],
+    [
+      "new york stock",
+      36
+    ],
+    [
+      "high oil price",
+      27
+    ],
+    [
+      "prime minister ariel",
+      26
+    ],
+    [
+      "minister ariel sharon",
+      25
+    ],
+    [
+      "new york yankees",
+      22
+    ],
+    [
+      "state colin powell",
+      22
+    ],
+    [
+      "secretary state colin",
+      22
+    ],
+    [
+      "president vladimir putin",
+      21
+    ],
+    [
+      "president george bush",
+      21
+    ],
+    [
+      "crude oil price",
+      20
+    ],
+    [
+      "international space station",
+      18
+    ],
+    [
+      "prime minister tony",
+      17
+    ],
+    [
+      "minister tony blair",
+      17
+    ],
+    [
+      "initial public offering",
+      16
+    ],
+    [
+      "los angeles dodger",
+      16
+    ],
+    [
+      "security exchange commission",
+      16
+    ],
+    [
+      "osama bin laden",
+      15
+    ],
+    [
+      "wal mart stores",
+      15
+    ],
+    [
+      "oil price rise",
+      15
+    ]
+  ],
+  "top50": [
+    [
+      "the",
+      13687,
+      true
+    ],
+    [
+      "to",
+      7962,
+      true
+    ],
+    [
+      "a",
+      7200,
+      true
+    ],
+    [
+      "of",
+      6577,
+      true
+    ],
+    [
+      "in",
+      6365,
+      true
+    ],
+    [
+      "be",
+      4678,
+      true
+    ],
+    [
+      "and",
+      4633,
+      true
+    ],
+    [
+      "on",
+      3772,
+      true
+    ],
+    [
+      "for",
+      3406,
+      true
+    ],
+    [
+      "have",
+      2422,
+      true
+    ],
+    [
+      "say",
+      1975,
+      false
+    ],
+    [
+      "that",
+      1932,
+      true
+    ],
+    [
+      "with",
+      1771,
+      true
+    ],
+    [
+      "as",
+      1717,
+      true
+    ],
+    [
+      "at",
+      1668,
+      true
+    ],
+    [
+      "its",
+      1501,
+      true
+    ],
+    [
+      "it",
+      1437,
+      true
+    ],
+    [
+      "new",
+      1432,
+      false
+    ],
+    [
+      "by",
+      1356,
+      true
+    ],
+    [
+      "from",
+      1221,
+      true
+    ],
+    [
+      "an",
+      1194,
+      true
+    ],
+    [
+      "will",
+      1027,
+      true
+    ],
+    [
+      "year",
+      967,
+      false
+    ],
+    [
+      "after",
+      947,
+      true
+    ],
+    [
+      "his",
+      940,
+      true
+    ],
+    [
+      "us",
+      936,
+      true
+    ],
+    [
+      "over",
+      803,
+      true
+    ],
+    [
+      "their",
+      733,
+      true
+    ],
+    [
+      "up",
+      730,
+      true
+    ],
+    [
+      "he",
+      723,
+      true
+    ],
+    [
+      "two",
+      675,
+      true
+    ],
+    [
+      "first",
+      672,
+      true
+    ],
+    [
+      "company",
+      651,
+      false
+    ],
+    [
+      "world",
+      609,
+      false
+    ],
+    [
+      "but",
+      598,
+      true
+    ],
+    [
+      "win",
+      595,
+      false
+    ],
+    [
+      "one",
+      581,
+      true
+    ],
+    [
+      "more",
+      578,
+      true
+    ],
+    [
+      "they",
+      577,
+      true
+    ],
+    [
+      "game",
+      554,
+      false
+    ],
+    [
+      "report",
+      549,
+      false
+    ],
+    [
+      "out",
+      545,
+      true
+    ],
+    [
+      "this",
+      543,
+      true
+    ],
+    [
+      "we",
+      540,
+      true
+    ],
+    [
+      "not",
+      530,
+      true
+    ],
+    [
+      "oil",
+      519,
+      false
+    ],
+    [
+      "monday",
+      518,
+      false
+    ],
+    [
+      "wednesday",
+      505,
+      false
+    ],
+    [
+      "thursday",
+      502,
+      false
+    ],
+    [
+      "tuesday",
+      495,
+      false
+    ]
+  ],
+  "top50_stop": 37,
+  "vocab": 17719,
+  "hapax": 6968
+}
