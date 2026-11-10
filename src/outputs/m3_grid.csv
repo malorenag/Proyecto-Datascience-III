@@ -8,9 +8,9 @@ None,"(1, 1)",MultinomialNB,8253,0.8929,0.01
 5000,"(1, 1)",MultinomialNB,5000,0.8914,0.01
 5000,"(1, 2)",MultinomialNB,5000,0.8907,0.01
 20000,"(1, 2)",LogisticRegression,20000,0.8891,0.4
-None,"(1, 2)",LogisticRegression,20507,0.8879,0.35
+None,"(1, 2)",LogisticRegression,20507,0.8879,0.34
 20000,"(1, 1)",LinearSVC,8253,0.8878,0.02
-None,"(1, 1)",LinearSVC,8253,0.8878,0.03
+None,"(1, 1)",LinearSVC,8253,0.8878,0.02
 20000,"(1, 1)",LogisticRegression,8253,0.883,0.19
 None,"(1, 1)",LogisticRegression,8253,0.883,0.19
 5000,"(1, 2)",LinearSVC,5000,0.8826,0.04

@@ -64,7 +64,7 @@ def cargar(dataset: str = DATASET):
 
 def save_json(obj, name):
     _mkdirs()
-    (OUT / name).write_text(json.dumps(obj, indent=2, ensure_ascii=False), encoding="utf-8")
+    (OUT / name).write_text(json.dumps(obj, indent=2, ensure_ascii=False, default=list), encoding="utf-8")
 
 
 def load_json(name):
@@ -631,14 +631,14 @@ def m4(args):
     pred = [clases[i] for i in np.argmax(out.predictions, axis=-1)]
     met = _metrics(te.label, pred, clases)
     met.update({"modelo": MODEL_CKPT, "r": args.r, "alpha": args.alpha, "lr": args.lr, "epochs": args.epochs,
-                "target_modules": cfg.target_modules, "max_length": max_len, "p95_subword": p95,
+                "target_modules": sorted(cfg.target_modules), "max_length": max_len, "p95_subword": p95,
                 "params_total_base": int(total_base), "params_total_peft": int(total),
                 "params_trainable": int(trainable), "pct_trainable": 100 * trainable / total,
                 "train_seconds": round(train_s, 1), "inference_seconds": round(infer_s, 2),
                 "final_train_loss": tr_loss[-1] if tr_loss else None,
                 "final_val_loss": ev[-1]["eval_loss"] if ev else None,
                 "val_history": [{"epoch": x["epoch"], "eval_loss": x["eval_loss"], "f1_macro": x["eval_f1_macro"]} for x in ev],
-                "gpu": torch.cuda.get_device_name(0) if cuda else "CPU", "torch": torch.__version__,
+                "gpu": torch.cuda.get_device_name(0) if cuda else ("Apple MPS (GPU del Mac)" if torch.backends.mps.is_available() else "CPU"), "torch": torch.__version__,
                 "clases": clases, "preds": pred})
     cm = np.array(met["confusion"]); off = cm.copy(); np.fill_diagonal(off, 0)
     i, j = np.unravel_index(off.argmax(), off.shape)
@@ -727,7 +727,7 @@ def m4_pdf(args):
             f"({a['par_mas_confundido'][2]} casos) y la del Transformer es {b['par_mas_confundido'][0]} vs {b['par_mas_confundido'][1]} "
             f"({b['par_mas_confundido'][2]} casos). LoRA permite adaptar el modelo entrenando solo {b['pct_trainable']:.2f}% de los parametros y guardar un adaptador liviano.", "b")]
     _, ap = _name(args)
-    build(OUT / f"{ap}_Checkpoint_NLP3.pdf", s, "Checkpoint NLP 4")
+    build(OUT / f"{ap}_Checkpoint4_NLP3.pdf", s, "Checkpoint NLP 4")
 
 
 def m5(args):
@@ -739,7 +739,7 @@ def m5(args):
     s = [P("Proyecto final: clasificacion de noticias con TF-IDF vs. Transformer + LoRA", "t"),
          P(f"Data Science III - Capstone Report | {args.nombre} {args.apellido}", "s"),
          P("1. Definicion del problema", "h1"),
-         P(f"Objetivo: clasificar noticias en inglesas en 4 temas (World, Sports, Business, Sci_Tech) con el dataset AG News de la catedra "
+         P(f"Objetivo: clasificar noticias en ingles en 4 temas (World, Sports, Business, Sci_Tech) con el dataset AG News de la catedra "
            f"({st['n_train']} noticias de train, {st['n_test']} de test, clases perfectamente balanceadas). El caso de negocio es el enrutamiento automatico "
            "de contenido editorial. La pregunta que ordena el informe: <b>cuanto aporta, y a que costo, un Transformer adaptado con LoRA "
            "frente a un baseline clasico bien construido</b>, evaluados sobre exactamente el mismo test.", "b"),
@@ -805,8 +805,8 @@ def m5(args):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("etapa", nargs="?", choices=["m1", "m2", "m3", "m4", "m4-pdf", "m5"])
-    ap.add_argument("--apellido", default="Apellido")
-    ap.add_argument("--nombre", default="Nombre")
+    ap.add_argument("--apellido", default="Gomez")
+    ap.add_argument("--nombre", default="MariaLorena")
     ap.add_argument("--epochs", type=int, default=None)
     ap.add_argument("--lr", type=float, default=None)
     ap.add_argument("--batch", type=int, default=64)
@@ -814,6 +814,10 @@ def main():
     ap.add_argument("--alpha", type=int, default=16)
     a = ap.parse_args()
     if a.etapa is None:
+        opciones = ["m1", "m2", "m3", "m4", "m4-pdf", "m5"]
+        a.etapa = input(f"Etapa a ejecutar ({', '.join(opciones)}): ").strip()
+        if a.etapa not in opciones:
+            raise SystemExit(f"Etapa inválida: '{a.etapa}'")
         a.etapa = input("Etapa a ejecutar (m1, m2, m3, m4, m4-pdf, m5): ").strip()
     if a.etapa == "m1":
         a.epochs, a.lr = a.epochs or 15, a.lr or 1e-3

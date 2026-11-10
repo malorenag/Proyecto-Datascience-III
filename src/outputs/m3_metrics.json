@@ -81,7 +81,7 @@
   "max_features": "None",
   "ngram_range": "(1, 2)",
   "n_features": 25400,
-  "train_seconds": 0.17,
+  "train_seconds": 0.16,
   "inference_seconds": 0.0,
   "clases": [
     "Business",
@@ -2171,7 +2171,7 @@
       "modelo": "LogisticRegression",
       "n_features": 20507,
       "f1_macro_val": 0.8879,
-      "fit_s": 0.35
+      "fit_s": 0.34
     },
     {
       "max_features": "20000",
@@ -2187,7 +2187,7 @@
       "modelo": "LinearSVC",
       "n_features": 8253,
       "f1_macro_val": 0.8878,
-      "fit_s": 0.03
+      "fit_s": 0.02
     }
   ],
   "top_terms": {
